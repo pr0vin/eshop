@@ -13,6 +13,7 @@ const login =async(req,res)=>{
                 const token=jwt.sign({
                     userId:user._id,
                     isAdmin:user.isAdmin,
+                    role:user.role
                 },
                 process.env.SECRET,{expiresIn:3600});
                 res.status(200).json({user:user.email,token:token});
