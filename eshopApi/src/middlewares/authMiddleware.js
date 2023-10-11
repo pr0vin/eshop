@@ -3,6 +3,8 @@ require("dotenv").config();
 
 const SECRET_KEY = process.env.SECRET;
 
+// const getTokenData = require("../helpers/decodeJwt");
+
 const authAdmin = (req, res, next) => {
     try {
       let token = req.headers.authorization;

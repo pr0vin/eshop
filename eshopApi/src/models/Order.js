@@ -5,9 +5,13 @@ const orderSchema =mongoose.Schema({
         ref: 'User',
         required: true
     },
-    product: {
-        type: mongoose.Schema.Types.ObjectId,
+    products:
+       { type: mongoose.Schema.Types.ObjectId,
         ref: 'Product',
+        required: true}
+    ,
+    shippingAddress: {
+        type:String,
         required: true
     },
     quantity: {

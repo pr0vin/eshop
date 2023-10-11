@@ -48,12 +48,14 @@ const categoryRouter=require('./src/routes/categoryRoute');
 const userRouter=require('./src/routes/userRoute');
 const orderRouter=require('./src/routes/orderRoute');
 const authRouter=require('./src/routes/authRoute');
+const cartRouter=require('./src/routes/cartRoute');
 
 app.use('/api/products', productRouter);
 app.use('/api/categories',categoryRouter);
 app.use('/api/users',userRouter);
 app.use('/api/orders',orderRouter);
 app.use('/api/auth',authRouter);
+app.use('/api/cart',cartRouter);
 
 
 
