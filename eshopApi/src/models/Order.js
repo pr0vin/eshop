@@ -1,31 +1,48 @@
 const mongoose = require('mongoose');
+const ItemSchema=new mongoose.Schema({
+    productId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Product',
+    },
+    quantity:{
+        type:Number,
+        required:true,
+        min:1
+    },
+    total:{
+        type:Number,
+        default:0
+    }
+
+});
 const orderSchema =mongoose.Schema({
-    user: {
+    userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
     },
-    products:
-       { type: mongoose.Schema.Types.ObjectId,
-        ref: 'Product',
-        required: true}
-    ,
+   items:[ItemSchema],
     shippingAddress: {
         type:String,
-        required: true
-    },
-    quantity: {
-        type: Number,
         required: true
     },
     status: {
         type: Boolean,
         default: 0
     },
-    total: {
+    subtotal: {
         type: Number,
         required: true
     },
+    charges:{
+        type:Number,
+        default:0,
+    },
+    grandtotal:{
+        type:Number,
+        required: true
+    }
+    ,
     payment: {
         type: Boolean,
         default: 0

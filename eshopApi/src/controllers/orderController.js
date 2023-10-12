@@ -1,9 +1,11 @@
 const Order=require('../models/Order');
+const Cart=require('../models/Cart');
+const Product=require('../models/Product');
 
 const orderlist=async(req,res)=>{
     try{
 
-        const orders=await Order.find().populate("user").populate("product");
+        const orders=await Order.find();
         if(orders){
             res.status(200).send(orders);
         }else{
@@ -16,13 +18,72 @@ const orderlist=async(req,res)=>{
 }
 const createOrder=async(req,res)=>{
     try{
-        const order= await Order.create(req.body);
-        if(order){
-        res.status(200).send({message:'Order created successfully',order:order});
+        const cart= await Cart.findOne({userId:req.params.id})
+       if(!cart){
+        res.status(404).send({message: 'No cart found'})
+       }
+       else{
+        const charges=Number.parseInt(req.body.charges)
+        const items=cart.items
+        if(items.length > 0){
+            for(let i=0; i<items.length; i++){
+               const item=items[i].productId
+               const product= await Product.findById(item)
+               if(!product){
+                 res.status(404).send({message: 'product not found'})
+               }
+               else if(product.stock >=cart.items[i].quantity){
+
+                product.stock -= Number.parseInt(cart.items[i].quantity)
+                await product.save();
+               }
+               else 
+               {
+                cart.items.splice(i, 1);
+                if (cart.items.length == 0) {
+                    cart.totalPrice = 0;
+                } else {
+                    cart.totalPrice = cart.items.map(item => item.total).reduce((acc, next) => acc + next);
+                }
+                await cart.save();
+                //  res.send({message:`Sorry only ${product.stock} is avaliable`})
+               
+               }
+              
+            }
+
+            if(cart.items.length > 0){
+            const data={
+                userId:req.params.id,
+                items:cart.items,
+                shippingAddress:req.body.shippingAddress,
+                subtotal:cart.totalPrice,
+                charges:charges,
+                grandtotal:charges+Number.parseInt(cart.totalPrice)
+    
+            }
+        
+
+       const order= await Order.create(data)
+       if(!order){
+
+        res.status(404).send({message: 'something went wrong'})
+       }else{
+            
+
+        cart.items=[];
+        cart.totalPrice=0;
+        await cart.save();
+        res.status(200).send({message:"Order saved successfully",order: order})
+       }
+       }else{
+        res.send("No item remaining")
+       }
+    }else{
+        res.send("No item remaining")
+       }
     }
-    else{
-        res.status(400).send('Something went wrong');
-    }
+    
     }catch(error){
         res.status(500).send(error.message);
     }

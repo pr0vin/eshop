@@ -3,7 +3,7 @@ const orderController=require('../controllers/orderController');
 
 orderRouter.get('/',orderController.orderlist);
 
-orderRouter.post('/',orderController.createOrder);
+orderRouter.post('/:id',orderController.createOrder);
 
 orderRouter.get('/:id',orderController.getOrders);
 
