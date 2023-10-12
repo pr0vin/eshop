@@ -1,4 +1,5 @@
 const Product=require('../models/Product');
+const fs=require('fs')
 
 const getProducts=async(req,res)=>{
    try {
@@ -15,32 +16,116 @@ const getProducts=async(req,res)=>{
 
 const createProduct=async(req,res)=>{
  try {
-       const product= await Product.create(req.body);
-       if(!product){
-           res.status(400).send("Something went wrong")
-       }else{
-           res.status(201).send({message:"Product created successfully",product:product})
-       }
- } catch (error) {
-    res.status(500).send(error.message)
- }
-}
 
-const updateProduct=async(req,res)=>{
-    try {
-        const product=await Product.findByIdAndUpdate(req.params.id,req.body,{new:true});
+    if(!req.files){
+    
+        const product=await Product.create(req.body);
         if(!product){
             res.status(400).send("Something went wrong")
         }else{
+            res.status(201).send({message:"Product created successfully",product:product})
+        }
+    }
+    else{
+
+        const data={
+            name:req.body.name,
+            price:req.body.price,
+            description:req.body.description,
+            category:req.body.category,
+            images:req.files,
+            stock:req.body.stock,
+            rating:req.body.rating,
+            sizes:req.body.sizes,
+            colors:req.body.colors
+        }
+
+
+        const product=await Product.create(data);
+        if(!product){
+            res.status(400).send("Something went wrong")
+        }else{
+            res.status(201).send({message:"Product created successfully",product:product})
+        }
+    }
+
+ } catch (error) {
+    res.status(500).send({message:
+        error.message})
+ }
+}
+
+
+const updateProduct=async(req,res)=>{
+try{
+
+    const images=req.files;
+    const data={
+        name:req.body.name,
+        price:req.body.price,
+        description:req.body.description,
+        category:req.body.category,
+        images:images,
+        stock:req.body.stock,
+        rating:req.body.rating,
+        sizes:req.body.sizes,
+        colors:req.body.colors
+    }
+   
+    if(images.length>0){
+        const result = await Product.findById(req.params.id);
+        if(result.images){
+            
+          for (let i = 0; i < result.images.length; i++) {
+            fs.unlinkSync(`./public/uploads/images/${result.images[i].filename}`)
+          }
+        }
+        const product=await Product.findByIdAndUpdate(req.params.id,data,{new:true,upsert:true});
+        if(!product){
+            res.status(400).send("Something went wrong")
+        }else{
+          
             res.status(200).send({message:"Product updated successfully",product:product})
         }
-    } catch (error) {
-        res.status(500).send(error.message)
     }
+    else{
+        const newData={
+            name:req.body.name,
+            price:req.body.price,
+            description:req.body.description,
+            category:req.body.category,
+            stock:req.body.stock,
+            rating:req.body.rating,
+            sizes:req.body.sizes,
+            colors:req.body.colors
+        }
+      
+            const product=await Product.findByIdAndUpdate(req.params.id,newData,{new:true,upsert:true});
+           
+            if(!product){
+                res.status(400).send("Something went wrong")
+            }else{
+                res.status(200).send({message:"Product updated successfully",product:product})
+            }
+           
+        
+    }
+}
+catch (error) {
+    res.status(500).send(error.message)
+}
+
 }
 
 const deleteProduct=async(req,res)=>{
     try {
+        const result = await Product.findById(req.params.id);
+        if(result.images){
+            
+          for (let i = 0; i < result.images.length; i++) {
+            fs.unlinkSync(`./public/uploads/images/${result.images[i].filename}`)
+          }
+        }
         const product=await Product.findByIdAndDelete(req.params.id);
         if(!product){
             res.status(400).send("Something went wrong")

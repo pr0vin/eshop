@@ -40,6 +40,9 @@ connection();
 app.use(authJwt())
 app.use(errorHandler);
 
+app.use(express.static(__dirname+'public'));
+app.use('/uploads', express.static('uploads'));
+
 // Routes
 app.use(express.json());
 

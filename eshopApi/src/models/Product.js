@@ -17,9 +17,16 @@ const productSchema=mongoose.Schema({
         type:String,
         required:false
     },
-    image:{
-        type:String,
+    images:{
+        type:Array,
         required:false
+    },
+    sizes:{
+        type:Array,
+       
+    },
+    colors:{
+        type:Array
     },
     stock:{
         type:Number,
