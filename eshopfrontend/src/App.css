@@ -1,0 +1,26 @@
+#root {
+  max-width: auto;
+  margin: 0;
+  /* padding: 2rem; */
+  /* text-align: center; */
+}
+
+nav {
+  border-bottom: 3px solid var(--themeColor);
+}
+.taskbar-categories {
+  cursor: pointer;
+  padding: 2px 10px;
+  margin: 5px 0;
+  color: white;
+}
+.taskbar-categories:hover {
+  border: 1px solid var(--themeColor);
+}
+
+.login-form {
+  padding: 20px;
+  display: inline-block;
+  border-radius: 8px;
+  border: 1px solid var(--light);
+}

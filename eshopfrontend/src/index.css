@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Lora", serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  --themeColor: rgba(240, 168, 34, 0.781);
+  --secondary-color: #f2bd53;
+  --light: #e2e2e2;
+}
+div::-webkit-scrollbar {
+  display: none;
+}
+Link,
+a {
+  font-weight: 400;
+  text-decoration: inherit;
+}
+
+Link:hover,
+a:hover {
+  border-bottom: 2px solid var(--themeColor);
+  transition: width 8000ms;
+  transition-timing-function: erase;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 400;
+  font-family: inherit;
+  background-color: black;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: var(--themeColor);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.btn-primary {
+  @apply bg-primary md:pe-5 md:py-2 rounded-full hover:bg-black hover:text-white;
+}
+
+form {
+  flex-wrap: wrap;
+  width: 320px;
+}
+/* form label {
+  text-align: start;
+  display: block;
+} */
+
+form input {
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid var(--themeColor);
+  padding: 0.4em 1.2em;
+  margin: 0.8em 0.5em;
+}
+form input:focus,
+form input:focus-visible {
+  outline: none;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    /* color: #213547; */
+    color: black;
+    background-color: #ffffff;
+  }
+  button {
+    background-color: var(--light);
+  }
+}
+
+@media (min-width: 400) {
+  :root {
+    font-weight: 200;
+  }
+}

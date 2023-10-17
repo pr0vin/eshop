@@ -116,6 +116,7 @@ const updateOrder=async(req,res)=>{
     }
 }
 
+
 const deleteOrder=async(req,res)=>{
     try{
         const order=await Order.findByIdAndDelete(req.params.id);
