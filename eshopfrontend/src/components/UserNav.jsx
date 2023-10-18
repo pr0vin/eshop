@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
 import { AiFillCaretDown, AiOutlineShoppingCart } from "react-icons/ai";
-
-function Navbar() {
+function UserNav() {
   const [toggleMenu, setToggleMenu] = useState(false);
   const toggleMenuHandler = () => {
     setToggleMenu(!toggleMenu);
@@ -27,13 +26,9 @@ function Navbar() {
           </div>
           <div
             className="flex
-          "
+            "
           >
             <div className="flex items-end gap-6">
-              <button className="btn-primary">
-                <Link to={"/auth/login"}>Login</Link>
-              </button>
-
               <button
                 onClick={toggleMenuHandler}
                 className="md:text-2xl  font-bold md:hidden"
@@ -43,10 +38,10 @@ function Navbar() {
             </div>
             <div
               className={`md:static absolute bg-white md:min-h-fit min-h-[50vh] z-50  left-0 ${
-                toggleMenu ? "top-[10%]" : "top-[-100%]"
+                toggleMenu ? "top-[8%]" : "top-[-100%]"
               } md:w-auto w-full flex-items-center `}
             >
-              <ul className="flex   md:items-center gap-2  px-5 py-2 ">
+              <ul className="flex   md:items-center gap-3  px-5 py-2 ">
                 <li className="">
                   <Link to={"/"}>Home</Link>
                 </li>
@@ -85,4 +80,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default UserNav;
