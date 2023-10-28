@@ -5,7 +5,7 @@
 :root {
   font-family: "Lora", serif;
   line-height: 1.5;
-  font-weight: 400;
+  /* font-weight: 400; */
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -29,6 +29,9 @@ a {
   font-weight: 400;
   text-decoration: inherit;
 }
+/* section {
+  background-color: white;
+} */
 
 Link:hover,
 a:hover {
@@ -42,6 +45,7 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--light);
 }
 
 button {

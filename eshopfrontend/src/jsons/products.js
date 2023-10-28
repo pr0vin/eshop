@@ -5,17 +5,25 @@ const products = [
     image: "./images/tShirt6.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    rating: 4,
-    discount: 20,
+    rating: {
+      stars: 3.5,
+      reviews: 50,
+    },
+    discount: 0,
+    featured: true,
   },
   {
-    name: "women t-shirts ans the combo",
+    name: "women t-shirts ans the combo for the winter",
     price: 5000,
     image: "./images/tshirt7.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    rating: 3.5,
+    rating: {
+      stars: 4,
+      reviews: 40,
+    },
     discount: 25,
+    featured: true,
   },
   {
     name: "men wear sweater for the day",
@@ -23,8 +31,12 @@ const products = [
     image: "./images/tshirt1.avif",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    rating: 3,
+    rating: {
+      stars: 2.5,
+      reviews: 80,
+    },
     discount: 25,
+    featured: true,
   },
   {
     name: "men wear sweater for the day",
@@ -32,8 +44,12 @@ const products = [
     image: "./images/jacket3.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    rating: 3,
+    rating: {
+      stars: 4,
+      reviews: 30,
+    },
     discount: 25,
+    featured: false,
   },
   {
     name: "men wear sweater for the day",
@@ -41,8 +57,12 @@ const products = [
     image: "./images/jacket1.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    rating: 3,
+    rating: {
+      stars: 3.5,
+      reviews: 76,
+    },
     discount: 25,
+    featured: false,
   },
   {
     name: "men wear sweater for the day",
@@ -50,8 +70,12 @@ const products = [
     image: "./images/jacket3.jpg",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    rating: 3,
+    rating: {
+      stars: 3.5,
+      reviews: 40,
+    },
     discount: 25,
+    featured: true,
   },
 ];
 export default products;

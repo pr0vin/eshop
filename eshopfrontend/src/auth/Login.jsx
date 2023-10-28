@@ -10,10 +10,10 @@ import { Link } from "react-router-dom";
 function Login() {
   return (
     <>
-      <div className="text-center ">
+      <div className="text-center  ">
         <div className="text-3xl font-bold my-3">welcome to Back !</div>
 
-        <div className="login-form shadow-xl">
+        <section className="login-form shadow-xl">
           <form action="">
             <div>
               {/* <label htmlFor="username ">Username :</label> */}
@@ -72,7 +72,7 @@ function Login() {
               </span>
             </div>
           </form>
-        </div>
+        </section>
       </div>
     </>
   );

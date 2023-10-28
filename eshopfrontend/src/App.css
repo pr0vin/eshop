@@ -24,3 +24,13 @@ nav {
   border-radius: 8px;
   border: 1px solid var(--light);
 }
+.rating-stars {
+  font-size: 15px;
+  color: orange;
+}
+
+@media (max-width: 768px) {
+  .rating-stars {
+    font-size: 10px;
+  }
+}

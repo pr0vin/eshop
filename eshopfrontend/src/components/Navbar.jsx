@@ -74,7 +74,7 @@ function Navbar() {
                 <AiFillCaretDown />
               </i>
             </div>
-            <div className="taskbar-categories">T-Shirts</div>
+            <div className="taskbar-categories">Shirts</div>
             <div className="taskbar-categories">Pants</div>
             <div className=" taskbar-categories ">Jackets</div>
             <div className="taskbar-categories">Shoes</div>
