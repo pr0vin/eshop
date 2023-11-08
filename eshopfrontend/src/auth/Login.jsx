@@ -11,7 +11,9 @@ function Login() {
   return (
     <>
       <div className="text-center  ">
-        <div className="text-3xl font-bold my-3">welcome to Back !</div>
+        <div className="text-3xl font-bold my-3 ">
+          <h1>Welcome Back !</h1>
+        </div>
 
         <section className="login-form shadow-xl">
           <form action="">

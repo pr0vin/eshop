@@ -11,8 +11,8 @@ function Home() {
     <>
       <div className="">
         <img
-          className="h-[80vh] w-full"
-          src="./images/img3.jpg"
+          className="h-[80vh] w-full object-fill"
+          src="./images/cover1.jpg"
           alt="background"
         />
       </div>
@@ -25,7 +25,7 @@ function Home() {
         </div>
       </section>
       <section className=" my-[3rem]  mx-[2rem]  md:mx-[5rem]">
-        <div className="text-4xl px-3  italic">Fretured</div>
+        <div className="text-4xl px-3  italic">Featured</div>
 
         <div>
           <ProductView products={featuredProducts} />

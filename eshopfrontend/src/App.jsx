@@ -6,16 +6,17 @@ import Index from "./pages/Index";
 import Help from "./pages/Help";
 import Register from "./auth/Register";
 import authIndex from "./auth/authIndex";
+import ProductDetails from "./elements/ProductDetails";
 
 function App() {
   return (
     <>
       <Routes>
-        <Route path="/" Component={Index}>
+        <Route path="/*" Component={Index}>
           <Route path="" index Component={Home} />
           <Route path="help" Component={Help} />
+          <Route path=":id" Component={ProductDetails} />
         </Route>
-
         <Route path="/auth/*" Component={authIndex}>
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />

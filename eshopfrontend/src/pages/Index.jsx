@@ -7,10 +7,10 @@ function Index() {
   return (
     <>
       <div>
-        <div className="md:sticky top-0 z-10">
+        <header className="md:sticky top-0 z-10">
           <Navbar />
-        </div>
-        <div className="min-h-screen">
+        </header>
+        <div className="min-h-screen ">
           <Outlet />
         </div>
         <div>

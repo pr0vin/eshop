@@ -47,7 +47,25 @@ body {
   min-height: 100vh;
   background-color: var(--light);
 }
-
+h1 {
+  font-weight: 300;
+  display: inline-block;
+  padding-bottom: 5px;
+  position: relative;
+  font-style: italic;
+}
+h1:before {
+  content: "";
+  position: absolute;
+  width: 35%;
+  height: 1px;
+  bottom: 0;
+  left: 2%;
+  border-bottom: 3px solid var(--themeColor);
+}
+p {
+  text-align: justify;
+}
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -69,6 +87,9 @@ button:focus-visible {
 
 .btn-primary {
   @apply bg-primary md:pe-5 md:py-2 rounded-full hover:bg-black hover:text-white;
+}
+.body-margin {
+  @apply my-[2rem]  mx-[2rem]  md:mx-[5rem];
 }
 
 form {

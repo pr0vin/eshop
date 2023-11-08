@@ -1,21 +1,21 @@
 import React from "react";
 import Stars from "./Stars";
+import { useNavigate } from "react-router-dom";
+import DiscountCalc from "../assets/DiscountCalc";
 
 function ProductView({ products }) {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="flex gap-3  p-3 ">
         <div className=" grid   grid-cols-2 md:grid-cols-6 sm:grid-cols-4 gap-3  ">
           {products.map((product, index) => {
-            const d = parseInt(product.discount) / 100;
-            const price = parseInt(product.price);
-            const dprice = parseInt(price * d);
-
-            const actualPrice = price - dprice;
-
-            // console.log(actualPrice);
+            const actualPrice = DiscountCalc(product.discount, product.price);
             return (
               <div
+                onClick={() => {
+                  navigate(`${product.id}`);
+                }}
                 key={index}
                 className="shadow-xl border border-light bg-white   hover:border-primary"
               >

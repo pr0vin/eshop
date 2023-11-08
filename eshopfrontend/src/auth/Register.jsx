@@ -11,7 +11,9 @@ function Register() {
     <>
       <div>
         <div className="text-center ">
-          <div className="text-3xl font-bold my-3">Create Account !</div>
+          <div className="text-3xl font-bold my-3">
+            <h1 className="">Create Account !</h1>
+          </div>
           <div className="login-form shadow-xl ">
             <form action="">
               <div className="">

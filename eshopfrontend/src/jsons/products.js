@@ -1,5 +1,6 @@
 const products = [
   {
+    id: 1,
     name: "Product 1",
     price: 1000,
     image: "./images/tShirt6.jpg",
@@ -13,6 +14,7 @@ const products = [
     featured: true,
   },
   {
+    id: 2,
     name: "women t-shirts ans the combo for the winter",
     price: 5000,
     image: "./images/tshirt7.jpg",
@@ -26,6 +28,7 @@ const products = [
     featured: true,
   },
   {
+    id: 3,
     name: "men wear sweater for the day",
     price: 3000,
     image: "./images/tshirt1.avif",
@@ -39,6 +42,7 @@ const products = [
     featured: true,
   },
   {
+    id: 4,
     name: "men wear sweater for the day",
     price: 5000,
     image: "./images/jacket3.jpg",
@@ -52,6 +56,7 @@ const products = [
     featured: false,
   },
   {
+    id: 5,
     name: "men wear sweater for the day",
     price: 8000,
     image: "./images/jacket1.jpg",
@@ -65,6 +70,7 @@ const products = [
     featured: false,
   },
   {
+    id: 6,
     name: "men wear sweater for the day",
     price: 10000,
     image: "./images/jacket3.jpg",
