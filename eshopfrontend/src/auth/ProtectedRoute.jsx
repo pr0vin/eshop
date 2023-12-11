@@ -2,9 +2,9 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
 import { useEffect } from "react";
 
-const { token, isAdmin } = useAuth();
 const ProtectedRoute = () => {
   const navigate = useNavigate();
+  const { token } = useAuth();
   console.log(token);
   useEffect(() => {
     if (!token) {
@@ -15,4 +15,16 @@ const ProtectedRoute = () => {
   return <Outlet />;
 };
 
-export default ProtectedRoute;
+const IsAdminAuthorized = () => {
+  const navigate = useNavigate();
+  const { token, isAdmin } = useAuth();
+
+  useEffect(() => {
+    if (token && !isAdmin) {
+      navigate("/notfound");
+    }
+  }, [isAdmin]);
+  return <Outlet />;
+};
+
+export { ProtectedRoute, IsAdminAuthorized };

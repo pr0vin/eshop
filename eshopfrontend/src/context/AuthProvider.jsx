@@ -1,23 +1,17 @@
 import axios from "axios";
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import React, { createContext, useContext, useMemo, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import { notifySuccess, notifyError } from "../assets/ToastMessage";
 
 const AuthContext = createContext();
+const init = {
+  token: localStorage.getItem("token"),
+  isAdmin: false,
+};
 const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
-  const [token, makeToken] = useState(localStorage.getItem("token"));
-  const [isAdmin, setIsAdmin] = useState(false);
-  const setToken = (newtoken) => {
-    makeToken(newtoken);
-  };
+  const [state, dispatch] = useReducer(reducer, init);
 
   const logOut = () => {
     try {
@@ -33,7 +27,7 @@ const AuthProvider = ({ children }) => {
     try {
       const res = await axios.post(`/api/auth/login`, loginData);
       if (res) {
-        setToken(res.data.token);
+        dispatch({ type: "auth", payload: res.data.token });
         let user = jwtDecode(res.data.token);
         notifySuccess("success");
         if (user.isAdmin) {
@@ -43,38 +37,49 @@ const AuthProvider = ({ children }) => {
         }
       }
     } catch (error) {
-      console.log(error);
+      notifyError(error.response.data.message);
     }
   };
 
-  useEffect(() => {
-    if (token) {
-      axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-      localStorage.setItem("token", token);
-      let user = jwtDecode(token);
+  useMemo(() => {
+    if (state.token) {
+      axios.defaults.headers.common["Authorization"] = "Bearer " + state.token;
+      localStorage.setItem("token", state.token);
+      let user = jwtDecode(state.token);
       if (user.isAdmin) {
-        setIsAdmin(true);
+        dispatch({ type: "admin" });
       }
     } else {
       delete axios.defaults.headers.common["Authorization"];
       localStorage.removeItem("token");
     }
-  }, [token]);
+  }, [state.token]);
 
-  const values = useMemo(
-    () => ({
-      token,
-      setToken,
-      logOut,
-      isAdmin,
-      handleLogin,
-    }),
-    [token]
+  return (
+    <AuthContext.Provider value={{ ...state, handleLogin, logOut }}>
+      {children}
+    </AuthContext.Provider>
   );
-  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
-
-export const useAuth = () => {
+const useAuth = () => {
   return useContext(AuthContext);
 };
-export default AuthProvider;
+export { AuthProvider, useAuth };
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "admin":
+      return {
+        ...state,
+        isAdmin: true,
+      };
+    case "auth":
+      return {
+        ...state,
+        token: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};

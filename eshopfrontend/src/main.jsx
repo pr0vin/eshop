@@ -7,7 +7,7 @@ import ScrollToTop from "./assets/ScrollToTop.jsx";
 import { ProductProvider } from "./context/ProductContext.jsx";
 import axios from "axios";
 import { CategoryProvider } from "./context/categoryContext.jsx";
-import AuthProvider from "./context/AuthProvider.jsx";
+import { AuthProvider } from "./context/AuthProvider.jsx";
 import { ToastMessage } from "./assets/ToastMessage.jsx";
 axios.defaults.baseURL = "http://localhost:9000";
 

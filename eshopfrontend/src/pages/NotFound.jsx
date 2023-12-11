@@ -8,7 +8,7 @@ function NotFound() {
     setTimeout(() => {
       navigate(-1);
     }, 2000);
-  });
+  }, []);
   return (
     <>
       <div className="text-center">OOps ! Page not Found</div>
