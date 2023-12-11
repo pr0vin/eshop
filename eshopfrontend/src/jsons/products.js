@@ -12,6 +12,7 @@ const products = [
     },
     discount: 0,
     featured: true,
+    stock: 20,
   },
   {
     id: 2,
@@ -25,6 +26,7 @@ const products = [
       reviews: 40,
     },
     discount: 25,
+    stock: 20,
     featured: true,
   },
   {
@@ -40,6 +42,7 @@ const products = [
     },
     discount: 25,
     featured: true,
+    stock: 20,
   },
   {
     id: 4,
@@ -54,6 +57,7 @@ const products = [
     },
     discount: 25,
     featured: false,
+    stock: 20,
   },
   {
     id: 5,
@@ -68,6 +72,7 @@ const products = [
     },
     discount: 25,
     featured: false,
+    stock: 20,
   },
   {
     id: 6,
@@ -82,6 +87,7 @@ const products = [
     },
     discount: 25,
     featured: true,
+    stock: 20,
   },
 ];
 export default products;

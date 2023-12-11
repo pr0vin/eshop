@@ -29,8 +29,15 @@ nav {
   color: orange;
 }
 
+.sidebar-list {
+  @apply p-2 border-b mb-1 border-primary rounded-md flex hover:bg-primary cursor-pointer;
+}
+
 @media (max-width: 768px) {
   .rating-stars {
     font-size: 10px;
+  }
+  .m-hidden {
+    display: none;
   }
 }

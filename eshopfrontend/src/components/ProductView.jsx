@@ -3,6 +3,7 @@ import Stars from "./Stars";
 import { useNavigate } from "react-router-dom";
 import DiscountCalc from "../assets/DiscountCalc";
 
+const apiUrl = "http://localhost:9000/";
 function ProductView({ products }) {
   const navigate = useNavigate();
   return (
@@ -11,10 +12,11 @@ function ProductView({ products }) {
         <div className=" grid   grid-cols-2 md:grid-cols-6 sm:grid-cols-4 gap-3  ">
           {products.map((product, index) => {
             const actualPrice = DiscountCalc(product.discount, product.price);
+
             return (
               <div
                 onClick={() => {
-                  navigate(`${product.id}`);
+                  navigate(`/product/${product._id}`);
                 }}
                 key={index}
                 className="shadow-xl border border-light bg-white   hover:border-primary"
@@ -22,10 +24,11 @@ function ProductView({ products }) {
                 <div>
                   <img
                     className="w-full h-[12rem]"
-                    src={product.image}
+                    src={`${apiUrl}/uploads/images/${product.images[0].filename}`}
                     alt="images"
                   />
                 </div>
+
                 <div className="p-1 ">
                   <div className="min-h-[50px] md:min-h-[50px]">
                     <span className=" font-bold ">

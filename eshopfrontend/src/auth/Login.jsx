@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import {
   AiFillFacebook,
   AiOutlineGoogle,
@@ -6,8 +7,28 @@ import {
   AiOutlineTwitter,
 } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useAuth } from "../context/AuthProvider";
 
 function Login() {
+  const { handleLogin } = useAuth();
+  const [loginData, setLoginData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const HandleInputChange = (e) => {
+    e.preventDefault();
+    setLoginData({
+      ...loginData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const HandleSubmit = async (e) => {
+    e.preventDefault();
+    handleLogin(loginData);
+  };
+
   return (
     <>
       <div className="text-center  ">
@@ -16,14 +37,16 @@ function Login() {
         </div>
 
         <section className="login-form shadow-xl">
-          <form action="">
+          <form action="" onSubmit={HandleSubmit}>
             <div>
-              {/* <label htmlFor="username ">Username :</label> */}
+              {/* <label htmlFor="email ">email :</label> */}
               <input
                 type="text"
-                name="username"
-                // autoComplete="true"
-                placeholder="username "
+                name="email"
+                value={loginData.email}
+                autoComplete={"true"}
+                onChange={HandleInputChange}
+                placeholder="email "
                 required
               />
             </div>
@@ -33,22 +56,21 @@ function Login() {
               <input
                 type="password"
                 id="password"
-                name="pasword"
+                name="password"
+                value={loginData.password}
                 placeholder="password"
+                onChange={HandleInputChange}
                 required
               />
             </div>
 
             <div className="text-end px-2 italic text-secondary">
-              <Link to={"/auth/register"}>
-                Create Account?
-                {/* <Link to={"/auth/register"}>
-                  <strong className="italic text-primary">Register</strong>
-                </Link> */}
-              </Link>
+              <Link to={"/auth/register"}>Create Account?</Link>
             </div>
             <div className="my-4 text-end ">
-              <button className="btn-primary ">Login</button>
+              <button type="submit" className="btn-primary  ">
+                Login
+              </button>
             </div>
             <span>Sign in With :</span>
             <div className="text-3xl flex justify-center gap-2 px-3">

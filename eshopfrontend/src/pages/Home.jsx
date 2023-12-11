@@ -1,9 +1,12 @@
 import React from "react";
 
-import products from "../jsons/products";
+// import products from "../jsons/products";
 import ProductView from "../components/ProductView";
+import { useProductContext } from "../context/ProductContext";
 
 function Home() {
+  const { products } = useProductContext();
+
   const featuredProducts = products.filter(
     (product) => product.featured === true
   );

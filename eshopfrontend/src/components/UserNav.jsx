@@ -47,10 +47,10 @@ function UserNav() {
                 </li>
 
                 <li className="">
-                  <Link to={"help"}>Help ?</Link>
+                  <Link to={"/help"}>Help ?</Link>
                 </li>
                 <li className="">
-                  <Link to={"bag"}>
+                  <Link to={"/bag"}>
                     <i className="text-2xl font-bold">
                       <AiOutlineShoppingCart />
                     </i>
