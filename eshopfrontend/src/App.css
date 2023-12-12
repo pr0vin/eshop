@@ -30,7 +30,7 @@ nav {
 }
 
 .sidebar-list {
-  @apply p-2 border-b mb-1 border-primary rounded-md flex hover:bg-primary cursor-pointer;
+  @apply p-2 border-b mb-2 border-primary rounded-md flex justify-start hover:bg-primary cursor-pointer bg-white;
 }
 
 @media (max-width: 768px) {

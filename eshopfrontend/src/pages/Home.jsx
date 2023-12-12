@@ -14,7 +14,7 @@ function Home() {
     <>
       <div className="">
         <img
-          className="h-[80vh] w-full object-fill"
+          className="w-full object-fill max-h-[80vh] aspect-auto "
           src="./images/cover1.jpg"
           alt="background"
         />

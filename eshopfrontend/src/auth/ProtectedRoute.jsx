@@ -5,7 +5,6 @@ import { useEffect } from "react";
 const ProtectedRoute = () => {
   const navigate = useNavigate();
   const { token } = useAuth();
-  console.log(token);
   useEffect(() => {
     if (!token) {
       navigate("/auth/login");

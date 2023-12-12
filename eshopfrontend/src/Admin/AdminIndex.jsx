@@ -9,7 +9,7 @@ function AdminIndex() {
         <div className="">
           <Sidebar />
         </div>
-        <div className="col-span-4">
+        <div className="col-span-4 px-5">
           <Outlet />
         </div>
       </div>
