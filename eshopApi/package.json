@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
-    "build": "npm build --output public"
+    "build": "node build --output public"
   },
   "author": "",
   "license": "ISC",
