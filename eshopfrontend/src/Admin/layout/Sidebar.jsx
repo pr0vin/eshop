@@ -9,7 +9,10 @@ import {
   MdOutlineSystemUpdate,
 } from "react-icons/md";
 import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
+import { useAuth } from "../../context/AuthProvider";
+
 function Sidebar() {
+  const { logOut } = useAuth();
   const navigate = useNavigate();
   const [sOpen, SetSopen] = useState(false);
   const today = new Date().toDateString();
@@ -95,7 +98,7 @@ function Sidebar() {
           ) : (
             ""
           )}
-          <li className="sidebar-list ">
+          <li className="sidebar-list " onClick={logOut}>
             <span>
               <BiLogOut size={20} className="mx-3" />
             </span>
