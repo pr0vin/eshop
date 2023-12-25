@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
 import { AiFillCaretDown, AiOutlineShoppingCart } from "react-icons/ai";
+import CategoriesList from "./CategoriesList";
 function UserNav() {
+  const navigate = useNavigate();
   const [toggleMenu, setToggleMenu] = useState(false);
   const toggleMenuHandler = () => {
     setToggleMenu(!toggleMenu);
@@ -12,7 +14,12 @@ function UserNav() {
     <div>
       <header className="bg-white   ">
         <nav className="flex justify-between items-center mx-auto py-3 px-5  ">
-          <div className="flex ">
+          <div
+            className="flex  cursor-pointer"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             <div>
               <img
                 className="w-12 h-12 rounded-full cursor-pointer"
@@ -21,7 +28,7 @@ function UserNav() {
               />
             </div>
             <div>
-              <h1 className="font-bold text-3xl p-2 ">shopMania</h1>
+              <h2 className="font-bold text-3xl p-2 ">ShopMania</h2>
             </div>
           </div>
           <div
@@ -60,21 +67,7 @@ function UserNav() {
             </div>
           </div>
         </nav>
-
-        <section>
-          <div className="flex gap-6 overflow-x-scroll bg-black   border-b-primary ">
-            <div className=" flex  taskbar-categories ">
-              All
-              <i className="p-1">
-                <AiFillCaretDown />
-              </i>
-            </div>
-            <div className="taskbar-categories">T-Shirts</div>
-            <div className="taskbar-categories">Pants</div>
-            <div className=" taskbar-categories ">Jackets</div>
-            <div className="taskbar-categories">Shoes</div>
-          </div>
-        </section>
+        <CategoriesList />
       </header>
     </div>
   );

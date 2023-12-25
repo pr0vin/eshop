@@ -23,7 +23,7 @@ function ProductView({ products }) {
               >
                 <div>
                   <img
-                    className="w-full h-[12rem]"
+                    className="w-full h-[10rem] lg:h-[12rem]"
                     src={`${apiUrl}/uploads/images/${product.images[0].filename}`}
                     alt="images"
                   />

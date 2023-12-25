@@ -86,7 +86,11 @@ function ProductDetails() {
                     <FaMinus />
                   </button>
 
-                  <input className="border rounded-md w-10 mx-2" type="text" />
+                  <input
+                    className="border rounded-md w-10 mx-2 text-center"
+                    placeholder="1"
+                    type="text"
+                  />
 
                   <button className="border p-1">
                     <FaPlus />
@@ -94,7 +98,7 @@ function ProductDetails() {
                 </span>
               </div>
               <div>
-                <div className="flex gap-3 text-xl">
+                <div className="flex gap-3 lg:text-xl my-5">
                   <button className="">Buy Now</button>
                   <button className="btn-primary">Add to cart</button>
                 </div>
@@ -104,8 +108,8 @@ function ProductDetails() {
               </div>
             </div>
             {/* others */}
-            <div className="col-span-5 p-5 mx-5 ">
-              <div className=" grid  grid-cols-2">
+            <div className="col-span-5 lg:p-5 lg:mx-5 ">
+              <div className=" grid  lg:grid-cols-2">
                 <div className="bg-lightwhite p-5 ">
                   <div className="text-sm mb-2 ">Delivery</div>
                   <div className="flex my-2">

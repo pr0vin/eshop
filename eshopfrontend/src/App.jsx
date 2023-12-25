@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import AdminIndex from "./Admin/AdminIndex";
 import DashBoard from "./Admin/layout/DashBoard";
 import Products from "./Admin/layout/Products";
+import CategoriesView from "./elements/CategoriesView";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" index Component={Home} />
           <Route path="/help" Component={Help} />
           <Route path="/product/:id" Component={ProductDetails} />
+          <Route path="/categories/:id" Component={CategoriesView} />
           <Route path="/" element={<ProtectedRoute />}>
             <Route path="/bag" Component={cart} />
           </Route>

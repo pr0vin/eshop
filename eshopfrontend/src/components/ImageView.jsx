@@ -6,13 +6,13 @@ const ImageView = ({ images }) => {
   return (
     <div>
       <div className="grid md:grid-cols-4  ">
-        <div className="md:h-[80vh] h-[40vh]  overflow-x-scroll  ">
+        <div className="md:h-[80vh] h-[50vh]  overflow-x-scroll  ">
           {images.map((image, index) => {
             return (
-              <div key={index} className="p-2 w-full">
+              <div key={index} className="p-2 w-full ">
                 <img
                   onClick={() => setMainImg(image)}
-                  className="lg:h-[25vh] lg:w-full  md:h-[10vh] md:w-[5rem]  rounded-lg "
+                  className="lg:h-[20vh] lg:w-full  md:h-[10vh] md:w-[5rem] shadow-lg hover:border hover:border-primary  rounded-lg "
                   src={`${apiUrl}/uploads/images/${image.filename}`}
                   alt={image.name}
                 />
@@ -20,7 +20,7 @@ const ImageView = ({ images }) => {
             );
           })}
         </div>
-        <div className=" col-span-3  lg:justify-center p-2  m-hidden">
+        <div className=" col-span-3  lg:justify-center p-2  m-hidden ">
           <img
             src={`${apiUrl}/uploads/images/${mainImg.filename}`}
             alt="photo"
