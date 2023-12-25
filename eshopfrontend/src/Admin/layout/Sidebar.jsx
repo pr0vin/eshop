@@ -19,7 +19,7 @@ function Sidebar() {
 
   return (
     <>
-      <div className=" shadow-md relative  min-h-[95vh] overflow-y-scroll">
+      <div className=" shadow-md bg-white relative  min-h-[95vh] overflow-y-scroll">
         <h2 className="text-3xl bold text-center bg-primary  p-2">ShopMania</h2>
 
         <ul className="mt-3 shadow-lg">
